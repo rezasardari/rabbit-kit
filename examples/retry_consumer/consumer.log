@@ -1,0 +1,260 @@
+{"level":"info","time":"2025-07-27T23:39:56+03:30","message":"Connecting to RabbitMQ"}
+{"level":"info","time":"2025-07-27T23:39:56+03:30","message":"Connected to RabbitMQ"}
+{"level":"info","exchange":"retry-exchange","type":"direct","time":"2025-07-27T23:39:56+03:30","message":"Exchange declared successfully"}
+{"level":"info","exchange":"retry-queue.dlx","type":"direct","time":"2025-07-27T23:39:56+03:30","message":"Exchange declared successfully"}
+{"level":"info","time":"2025-07-27T23:39:56+03:30","message":"Queue declared successfully: retry-queue"}
+{"level":"info","time":"2025-07-27T23:39:56+03:30","message":"Queue declared successfully: retry-queue.retry"}
+{"level":"info","time":"2025-07-27T23:39:56+03:30","message":"Queue declared successfully: retry-queue.failed"}
+{"level":"info","time":"2025-07-27T23:39:56+03:30","message":"Queue binded successfully: retry-queue"}
+{"level":"info","time":"2025-07-27T23:39:56+03:30","message":"Queue binded successfully: retry-queue.retry"}
+{"level":"info","time":"2025-07-27T23:39:56+03:30","message":"Queue binded successfully: retry-queue.failed"}
+{"level":"info","time":"2025-07-27T23:39:56+03:30","message":"Starting retry consumer..."}
+{"level":"info","time":"2025-07-27T23:39:56+03:30","message":"starting consumer for queue retry-queue"}
+Retry consumer running. Press Ctrl+C to exit...
+Send messages with body 'success', 'retry', or 'fail' to test different scenarios
+{"level":"info","time":"2025-07-27T23:39:56+03:30","message":"starting consumer for queue retry-queue"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-1","delivery_tag":1,"time":"2025-07-27T23:40:04+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-1","body":"success","retry_count":0,"time":"2025-07-27T23:40:04+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-1","retry_count":0,"time":"2025-07-27T23:40:04+03:30","message":"Message processed successfully"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-1","processing_time":"1.345ms","time":"2025-07-27T23:40:04+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-2","delivery_tag":2,"time":"2025-07-27T23:40:05+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-2","body":"success","retry_count":0,"time":"2025-07-27T23:40:05+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-2","retry_count":0,"time":"2025-07-27T23:40:05+03:30","message":"Message processed successfully"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-2","processing_time":"1.368416ms","time":"2025-07-27T23:40:05+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-3","delivery_tag":3,"time":"2025-07-27T23:40:05+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-3","body":"success","retry_count":0,"time":"2025-07-27T23:40:05+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-3","retry_count":0,"time":"2025-07-27T23:40:05+03:30","message":"Message processed successfully"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-3","processing_time":"1.288709ms","time":"2025-07-27T23:40:05+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-4","delivery_tag":4,"time":"2025-07-27T23:40:07+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-4","body":"retry","retry_count":0,"time":"2025-07-27T23:40:07+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-4","retry_count":0,"time":"2025-07-27T23:40:07+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-4","processing_time":"1.263167ms","time":"2025-07-27T23:40:07+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-5","delivery_tag":5,"time":"2025-07-27T23:40:07+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-5","body":"retry","retry_count":0,"time":"2025-07-27T23:40:07+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-5","retry_count":0,"time":"2025-07-27T23:40:07+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-5","processing_time":"1.32775ms","time":"2025-07-27T23:40:07+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-6","delivery_tag":6,"time":"2025-07-27T23:40:09+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-6","body":"fail","retry_count":0,"time":"2025-07-27T23:40:09+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-6","time":"2025-07-27T23:40:09+03:30","message":"Simulating processing failure"}
+{"level":"info","message_id":"retry-test-6","retry_count":0,"time":"2025-07-27T23:40:09+03:30","message":"Sending to retry queue"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-6","processing_time":"1.329917ms","time":"2025-07-27T23:40:09+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-7","delivery_tag":7,"time":"2025-07-27T23:40:09+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-7","body":"fail","retry_count":0,"time":"2025-07-27T23:40:09+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-7","time":"2025-07-27T23:40:09+03:30","message":"Simulating processing failure"}
+{"level":"info","message_id":"retry-test-7","retry_count":0,"time":"2025-07-27T23:40:09+03:30","message":"Sending to retry queue"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-7","processing_time":"1.371708ms","time":"2025-07-27T23:40:09+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-1","delivery_tag":8,"time":"2025-07-27T23:40:11+03:30","message":"Processing message"}
+{"level":"info","message_id":"special-retry-test-1","body":"retry","retry_count":0,"time":"2025-07-27T23:40:11+03:30","message":"Processing message"}
+{"level":"warn","message_id":"special-retry-test-1","retry_count":0,"time":"2025-07-27T23:40:11+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-1","processing_time":"1.276417ms","time":"2025-07-27T23:40:11+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-2","delivery_tag":9,"time":"2025-07-27T23:40:11+03:30","message":"Processing message"}
+{"level":"info","message_id":"special-retry-test-2","body":"fail","retry_count":0,"time":"2025-07-27T23:40:11+03:30","message":"Processing message"}
+{"level":"warn","message_id":"special-retry-test-2","time":"2025-07-27T23:40:11+03:30","message":"Simulating processing failure"}
+{"level":"info","message_id":"special-retry-test-2","retry_count":0,"time":"2025-07-27T23:40:11+03:30","message":"Sending to retry queue"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-2","processing_time":"1.302625ms","time":"2025-07-27T23:40:11+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-4","delivery_tag":10,"time":"2025-07-27T23:40:12+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-4","body":"retry","retry_count":0,"time":"2025-07-27T23:40:12+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-4","retry_count":0,"time":"2025-07-27T23:40:12+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-4","processing_time":"1.277833ms","time":"2025-07-27T23:40:12+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-5","delivery_tag":11,"time":"2025-07-27T23:40:12+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-5","body":"retry","retry_count":0,"time":"2025-07-27T23:40:12+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-5","retry_count":0,"time":"2025-07-27T23:40:12+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-5","processing_time":"1.314334ms","time":"2025-07-27T23:40:12+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-6","delivery_tag":12,"time":"2025-07-27T23:40:14+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-6","body":"fail","retry_count":0,"time":"2025-07-27T23:40:14+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-6","time":"2025-07-27T23:40:14+03:30","message":"Simulating processing failure"}
+{"level":"info","message_id":"retry-test-6","retry_count":0,"time":"2025-07-27T23:40:14+03:30","message":"Sending to retry queue"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-6","processing_time":"1.37ms","time":"2025-07-27T23:40:14+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-7","delivery_tag":13,"time":"2025-07-27T23:40:14+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-7","body":"fail","retry_count":0,"time":"2025-07-27T23:40:14+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-7","time":"2025-07-27T23:40:14+03:30","message":"Simulating processing failure"}
+{"level":"info","message_id":"retry-test-7","retry_count":0,"time":"2025-07-27T23:40:14+03:30","message":"Sending to retry queue"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-7","processing_time":"1.304667ms","time":"2025-07-27T23:40:14+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-1","delivery_tag":14,"time":"2025-07-27T23:40:16+03:30","message":"Processing message"}
+{"level":"info","message_id":"special-retry-test-1","body":"retry","retry_count":0,"time":"2025-07-27T23:40:16+03:30","message":"Processing message"}
+{"level":"warn","message_id":"special-retry-test-1","retry_count":0,"time":"2025-07-27T23:40:16+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-1","processing_time":"1.331792ms","time":"2025-07-27T23:40:16+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-2","delivery_tag":15,"time":"2025-07-27T23:40:16+03:30","message":"Processing message"}
+{"level":"info","message_id":"special-retry-test-2","body":"fail","retry_count":0,"time":"2025-07-27T23:40:16+03:30","message":"Processing message"}
+{"level":"warn","message_id":"special-retry-test-2","time":"2025-07-27T23:40:16+03:30","message":"Simulating processing failure"}
+{"level":"info","message_id":"special-retry-test-2","retry_count":0,"time":"2025-07-27T23:40:16+03:30","message":"Sending to retry queue"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-2","processing_time":"1.305375ms","time":"2025-07-27T23:40:16+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-4","delivery_tag":16,"time":"2025-07-27T23:40:17+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-4","body":"retry","retry_count":0,"time":"2025-07-27T23:40:17+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-4","retry_count":0,"time":"2025-07-27T23:40:17+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-4","processing_time":"1.310458ms","time":"2025-07-27T23:40:17+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-5","delivery_tag":17,"time":"2025-07-27T23:40:17+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-5","body":"retry","retry_count":0,"time":"2025-07-27T23:40:17+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-5","retry_count":0,"time":"2025-07-27T23:40:17+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-5","processing_time":"1.324542ms","time":"2025-07-27T23:40:17+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-6","delivery_tag":18,"time":"2025-07-27T23:40:19+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-6","body":"fail","retry_count":0,"time":"2025-07-27T23:40:19+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-6","time":"2025-07-27T23:40:19+03:30","message":"Simulating processing failure"}
+{"level":"info","message_id":"retry-test-6","retry_count":0,"time":"2025-07-27T23:40:19+03:30","message":"Sending to retry queue"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-6","processing_time":"1.445833ms","time":"2025-07-27T23:40:19+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-7","delivery_tag":19,"time":"2025-07-27T23:40:19+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-7","body":"fail","retry_count":0,"time":"2025-07-27T23:40:19+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-7","time":"2025-07-27T23:40:19+03:30","message":"Simulating processing failure"}
+{"level":"info","message_id":"retry-test-7","retry_count":0,"time":"2025-07-27T23:40:19+03:30","message":"Sending to retry queue"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-7","processing_time":"1.291458ms","time":"2025-07-27T23:40:19+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-1","delivery_tag":20,"time":"2025-07-27T23:40:21+03:30","message":"Processing message"}
+{"level":"info","message_id":"special-retry-test-1","body":"retry","retry_count":0,"time":"2025-07-27T23:40:21+03:30","message":"Processing message"}
+{"level":"warn","message_id":"special-retry-test-1","retry_count":0,"time":"2025-07-27T23:40:21+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-1","processing_time":"1.3625ms","time":"2025-07-27T23:40:21+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-2","delivery_tag":21,"time":"2025-07-27T23:40:21+03:30","message":"Processing message"}
+{"level":"info","message_id":"special-retry-test-2","body":"fail","retry_count":0,"time":"2025-07-27T23:40:21+03:30","message":"Processing message"}
+{"level":"warn","message_id":"special-retry-test-2","time":"2025-07-27T23:40:21+03:30","message":"Simulating processing failure"}
+{"level":"info","message_id":"special-retry-test-2","retry_count":0,"time":"2025-07-27T23:40:21+03:30","message":"Sending to retry queue"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-2","processing_time":"1.34425ms","time":"2025-07-27T23:40:21+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-4","delivery_tag":22,"time":"2025-07-27T23:40:22+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-4","body":"retry","retry_count":0,"time":"2025-07-27T23:40:22+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-4","retry_count":0,"time":"2025-07-27T23:40:22+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-4","processing_time":"1.245625ms","time":"2025-07-27T23:40:22+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-5","delivery_tag":23,"time":"2025-07-27T23:40:22+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-5","body":"retry","retry_count":0,"time":"2025-07-27T23:40:22+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-5","retry_count":0,"time":"2025-07-27T23:40:22+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-5","processing_time":"1.275708ms","time":"2025-07-27T23:40:22+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-6","delivery_tag":24,"time":"2025-07-27T23:40:24+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-6","body":"fail","retry_count":0,"time":"2025-07-27T23:40:24+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-6","time":"2025-07-27T23:40:24+03:30","message":"Simulating processing failure"}
+{"level":"info","message_id":"retry-test-6","retry_count":0,"time":"2025-07-27T23:40:24+03:30","message":"Sending to retry queue"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-6","processing_time":"1.333791ms","time":"2025-07-27T23:40:24+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-7","delivery_tag":25,"time":"2025-07-27T23:40:24+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-7","body":"fail","retry_count":0,"time":"2025-07-27T23:40:24+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-7","time":"2025-07-27T23:40:24+03:30","message":"Simulating processing failure"}
+{"level":"info","message_id":"retry-test-7","retry_count":0,"time":"2025-07-27T23:40:24+03:30","message":"Sending to retry queue"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-7","processing_time":"1.445333ms","time":"2025-07-27T23:40:24+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-1","delivery_tag":26,"time":"2025-07-27T23:40:26+03:30","message":"Processing message"}
+{"level":"info","message_id":"special-retry-test-1","body":"retry","retry_count":0,"time":"2025-07-27T23:40:26+03:30","message":"Processing message"}
+{"level":"warn","message_id":"special-retry-test-1","retry_count":0,"time":"2025-07-27T23:40:26+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-1","processing_time":"1.366666ms","time":"2025-07-27T23:40:26+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-2","delivery_tag":27,"time":"2025-07-27T23:40:26+03:30","message":"Processing message"}
+{"level":"info","message_id":"special-retry-test-2","body":"fail","retry_count":0,"time":"2025-07-27T23:40:26+03:30","message":"Processing message"}
+{"level":"warn","message_id":"special-retry-test-2","time":"2025-07-27T23:40:26+03:30","message":"Simulating processing failure"}
+{"level":"info","message_id":"special-retry-test-2","retry_count":0,"time":"2025-07-27T23:40:26+03:30","message":"Sending to retry queue"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-2","processing_time":"1.351542ms","time":"2025-07-27T23:40:26+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-4","delivery_tag":28,"time":"2025-07-27T23:40:27+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-4","body":"retry","retry_count":0,"time":"2025-07-27T23:40:27+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-4","retry_count":0,"time":"2025-07-27T23:40:27+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-4","processing_time":"1.273291ms","time":"2025-07-27T23:40:27+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-5","delivery_tag":29,"time":"2025-07-27T23:40:27+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-5","body":"retry","retry_count":0,"time":"2025-07-27T23:40:27+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-5","retry_count":0,"time":"2025-07-27T23:40:27+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-5","processing_time":"1.293833ms","time":"2025-07-27T23:40:27+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-6","delivery_tag":30,"time":"2025-07-27T23:40:29+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-6","body":"fail","retry_count":0,"time":"2025-07-27T23:40:29+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-6","time":"2025-07-27T23:40:29+03:30","message":"Simulating processing failure"}
+{"level":"info","message_id":"retry-test-6","retry_count":0,"time":"2025-07-27T23:40:29+03:30","message":"Sending to retry queue"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-6","processing_time":"1.369458ms","time":"2025-07-27T23:40:29+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-7","delivery_tag":31,"time":"2025-07-27T23:40:29+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-7","body":"fail","retry_count":0,"time":"2025-07-27T23:40:29+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-7","time":"2025-07-27T23:40:29+03:30","message":"Simulating processing failure"}
+{"level":"info","message_id":"retry-test-7","retry_count":0,"time":"2025-07-27T23:40:29+03:30","message":"Sending to retry queue"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-7","processing_time":"1.351292ms","time":"2025-07-27T23:40:29+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-1","delivery_tag":32,"time":"2025-07-27T23:40:31+03:30","message":"Processing message"}
+{"level":"info","message_id":"special-retry-test-1","body":"retry","retry_count":0,"time":"2025-07-27T23:40:31+03:30","message":"Processing message"}
+{"level":"warn","message_id":"special-retry-test-1","retry_count":0,"time":"2025-07-27T23:40:31+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-1","processing_time":"1.273625ms","time":"2025-07-27T23:40:31+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-2","delivery_tag":33,"time":"2025-07-27T23:40:31+03:30","message":"Processing message"}
+{"level":"info","message_id":"special-retry-test-2","body":"fail","retry_count":0,"time":"2025-07-27T23:40:31+03:30","message":"Processing message"}
+{"level":"warn","message_id":"special-retry-test-2","time":"2025-07-27T23:40:31+03:30","message":"Simulating processing failure"}
+{"level":"info","message_id":"special-retry-test-2","retry_count":0,"time":"2025-07-27T23:40:31+03:30","message":"Sending to retry queue"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-2","processing_time":"1.3045ms","time":"2025-07-27T23:40:31+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-4","delivery_tag":34,"time":"2025-07-27T23:40:32+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-4","body":"retry","retry_count":0,"time":"2025-07-27T23:40:32+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-4","retry_count":0,"time":"2025-07-27T23:40:32+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-4","processing_time":"1.406208ms","time":"2025-07-27T23:40:32+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-5","delivery_tag":35,"time":"2025-07-27T23:40:32+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-5","body":"retry","retry_count":0,"time":"2025-07-27T23:40:32+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-5","retry_count":0,"time":"2025-07-27T23:40:32+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-5","processing_time":"1.391458ms","time":"2025-07-27T23:40:32+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-6","delivery_tag":36,"time":"2025-07-27T23:40:34+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-6","body":"fail","retry_count":0,"time":"2025-07-27T23:40:34+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-6","time":"2025-07-27T23:40:34+03:30","message":"Simulating processing failure"}
+{"level":"info","message_id":"retry-test-6","retry_count":0,"time":"2025-07-27T23:40:34+03:30","message":"Sending to retry queue"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-6","processing_time":"1.323583ms","time":"2025-07-27T23:40:34+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-7","delivery_tag":37,"time":"2025-07-27T23:40:34+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-7","body":"fail","retry_count":0,"time":"2025-07-27T23:40:34+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-7","time":"2025-07-27T23:40:34+03:30","message":"Simulating processing failure"}
+{"level":"info","message_id":"retry-test-7","retry_count":0,"time":"2025-07-27T23:40:34+03:30","message":"Sending to retry queue"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-7","processing_time":"1.28975ms","time":"2025-07-27T23:40:34+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-1","delivery_tag":38,"time":"2025-07-27T23:40:36+03:30","message":"Processing message"}
+{"level":"info","message_id":"special-retry-test-1","body":"retry","retry_count":0,"time":"2025-07-27T23:40:36+03:30","message":"Processing message"}
+{"level":"warn","message_id":"special-retry-test-1","retry_count":0,"time":"2025-07-27T23:40:36+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-1","processing_time":"1.37475ms","time":"2025-07-27T23:40:36+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-2","delivery_tag":39,"time":"2025-07-27T23:40:36+03:30","message":"Processing message"}
+{"level":"info","message_id":"special-retry-test-2","body":"fail","retry_count":0,"time":"2025-07-27T23:40:36+03:30","message":"Processing message"}
+{"level":"warn","message_id":"special-retry-test-2","time":"2025-07-27T23:40:36+03:30","message":"Simulating processing failure"}
+{"level":"info","message_id":"special-retry-test-2","retry_count":0,"time":"2025-07-27T23:40:36+03:30","message":"Sending to retry queue"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-2","processing_time":"1.328125ms","time":"2025-07-27T23:40:36+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-4","delivery_tag":40,"time":"2025-07-27T23:40:37+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-4","body":"retry","retry_count":0,"time":"2025-07-27T23:40:37+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-4","retry_count":0,"time":"2025-07-27T23:40:37+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-4","processing_time":"1.38775ms","time":"2025-07-27T23:40:37+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-5","delivery_tag":41,"time":"2025-07-27T23:40:37+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-5","body":"retry","retry_count":0,"time":"2025-07-27T23:40:37+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-5","retry_count":0,"time":"2025-07-27T23:40:37+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-5","processing_time":"1.405167ms","time":"2025-07-27T23:40:37+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-6","delivery_tag":42,"time":"2025-07-27T23:40:39+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-6","body":"fail","retry_count":0,"time":"2025-07-27T23:40:39+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-6","time":"2025-07-27T23:40:39+03:30","message":"Simulating processing failure"}
+{"level":"info","message_id":"retry-test-6","retry_count":0,"time":"2025-07-27T23:40:39+03:30","message":"Sending to retry queue"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-6","processing_time":"1.287209ms","time":"2025-07-27T23:40:39+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-7","delivery_tag":43,"time":"2025-07-27T23:40:39+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-7","body":"fail","retry_count":0,"time":"2025-07-27T23:40:39+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-7","time":"2025-07-27T23:40:39+03:30","message":"Simulating processing failure"}
+{"level":"info","message_id":"retry-test-7","retry_count":0,"time":"2025-07-27T23:40:39+03:30","message":"Sending to retry queue"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-7","processing_time":"1.425333ms","time":"2025-07-27T23:40:39+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-1","delivery_tag":44,"time":"2025-07-27T23:40:41+03:30","message":"Processing message"}
+{"level":"info","message_id":"special-retry-test-1","body":"retry","retry_count":0,"time":"2025-07-27T23:40:41+03:30","message":"Processing message"}
+{"level":"warn","message_id":"special-retry-test-1","retry_count":0,"time":"2025-07-27T23:40:41+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-1","processing_time":"1.43125ms","time":"2025-07-27T23:40:41+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-2","delivery_tag":45,"time":"2025-07-27T23:40:41+03:30","message":"Processing message"}
+{"level":"info","message_id":"special-retry-test-2","body":"fail","retry_count":0,"time":"2025-07-27T23:40:41+03:30","message":"Processing message"}
+{"level":"warn","message_id":"special-retry-test-2","time":"2025-07-27T23:40:41+03:30","message":"Simulating processing failure"}
+{"level":"info","message_id":"special-retry-test-2","retry_count":0,"time":"2025-07-27T23:40:41+03:30","message":"Sending to retry queue"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-2","processing_time":"1.330916ms","time":"2025-07-27T23:40:41+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-4","delivery_tag":46,"time":"2025-07-27T23:40:42+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-4","body":"retry","retry_count":0,"time":"2025-07-27T23:40:42+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-4","retry_count":0,"time":"2025-07-27T23:40:42+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-4","processing_time":"1.276125ms","time":"2025-07-27T23:40:42+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-5","delivery_tag":47,"time":"2025-07-27T23:40:42+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-5","body":"retry","retry_count":0,"time":"2025-07-27T23:40:42+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-5","retry_count":0,"time":"2025-07-27T23:40:42+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-5","processing_time":"1.2565ms","time":"2025-07-27T23:40:42+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-6","delivery_tag":48,"time":"2025-07-27T23:40:44+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-6","body":"fail","retry_count":0,"time":"2025-07-27T23:40:44+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-6","time":"2025-07-27T23:40:44+03:30","message":"Simulating processing failure"}
+{"level":"info","message_id":"retry-test-6","retry_count":0,"time":"2025-07-27T23:40:44+03:30","message":"Sending to retry queue"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-6","processing_time":"1.333458ms","time":"2025-07-27T23:40:44+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-7","delivery_tag":49,"time":"2025-07-27T23:40:44+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-7","body":"fail","retry_count":0,"time":"2025-07-27T23:40:44+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-7","time":"2025-07-27T23:40:44+03:30","message":"Simulating processing failure"}
+{"level":"info","message_id":"retry-test-7","retry_count":0,"time":"2025-07-27T23:40:44+03:30","message":"Sending to retry queue"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-7","processing_time":"1.373834ms","time":"2025-07-27T23:40:44+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-1","delivery_tag":50,"time":"2025-07-27T23:40:46+03:30","message":"Processing message"}
+{"level":"info","message_id":"special-retry-test-1","body":"retry","retry_count":0,"time":"2025-07-27T23:40:46+03:30","message":"Processing message"}
+{"level":"warn","message_id":"special-retry-test-1","retry_count":0,"time":"2025-07-27T23:40:46+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-1","processing_time":"1.28ms","time":"2025-07-27T23:40:46+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-2","delivery_tag":51,"time":"2025-07-27T23:40:46+03:30","message":"Processing message"}
+{"level":"info","message_id":"special-retry-test-2","body":"fail","retry_count":0,"time":"2025-07-27T23:40:46+03:30","message":"Processing message"}
+{"level":"warn","message_id":"special-retry-test-2","time":"2025-07-27T23:40:46+03:30","message":"Simulating processing failure"}
+{"level":"info","message_id":"special-retry-test-2","retry_count":0,"time":"2025-07-27T23:40:46+03:30","message":"Sending to retry queue"}
+{"level":"debug","queue":"retry-queue","message_id":"special-retry-test-2","processing_time":"1.306459ms","time":"2025-07-27T23:40:46+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-4","delivery_tag":52,"time":"2025-07-27T23:40:47+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-4","body":"retry","retry_count":0,"time":"2025-07-27T23:40:47+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-4","retry_count":0,"time":"2025-07-27T23:40:47+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-4","processing_time":"1.329584ms","time":"2025-07-27T23:40:47+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-5","delivery_tag":53,"time":"2025-07-27T23:40:47+03:30","message":"Processing message"}
+{"level":"info","message_id":"retry-test-5","body":"retry","retry_count":0,"time":"2025-07-27T23:40:47+03:30","message":"Processing message"}
+{"level":"warn","message_id":"retry-test-5","retry_count":0,"time":"2025-07-27T23:40:47+03:30","message":"Simulating intermittent failure"}
+{"level":"debug","queue":"retry-queue","message_id":"retry-test-5","processing_time":"1.371625ms","time":"2025-07-27T23:40:47+03:30","message":"Message explicitly acknowledged by handler"}
+{"level":"info","time":"2025-07-27T23:40:49+03:30","message":"Shutting down consumer..."}
+{"level":"error","time":"2025-07-27T23:40:49+03:30","message":"error consuming message for queue retry-queue: context canceled"}
+{"level":"error","error":"context canceled","time":"2025-07-27T23:40:49+03:30","message":"Consumer error"}
+{"level":"info","time":"2025-07-27T23:40:50+03:30","message":"Consumer shutdown complete"}
+{"level":"info","time":"2025-07-27T23:40:50+03:30","message":"Closing RabbitMQ client..."}
+{"level":"info","time":"2025-07-27T23:40:50+03:30","message":"Closing publisher"}
+{"level":"info","time":"2025-07-27T23:40:50+03:30","message":"closing consumer"}
+{"level":"info","time":"2025-07-27T23:40:50+03:30","message":"Closing RabbitMQ connection manager..."}
+{"level":"info","time":"2025-07-27T23:40:50+03:30","message":"RabbitMQ client closed successfully"}

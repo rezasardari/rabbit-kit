@@ -1,0 +1,50 @@
+=== Monitoring at Sun Jul 27 23:40:01 +0330 2025 ===
+retry-queue: 0 messages
+retry-queue.failed: 0 messages
+retry-queue.retry: 0 messages
+
+=== Monitoring at Sun Jul 27 23:40:06 +0330 2025 ===
+retry-queue: 0 messages
+retry-queue.failed: 0 messages
+retry-queue.retry: 0 messages
+
+=== Monitoring at Sun Jul 27 23:40:11 +0330 2025 ===
+retry-queue: 0 messages
+retry-queue.failed: 0 messages
+retry-queue.retry: 0 messages
+
+=== Monitoring at Sun Jul 27 23:40:16 +0330 2025 ===
+retry-queue: 0 messages
+retry-queue.failed: 0 messages
+retry-queue.retry: 2 messages
+
+=== Monitoring at Sun Jul 27 23:40:21 +0330 2025 ===
+retry-queue: 0 messages
+retry-queue.failed: 0 messages
+retry-queue.retry: 6 messages
+
+=== Monitoring at Sun Jul 27 23:40:26 +0330 2025 ===
+retry-queue: 0 messages
+retry-queue.failed: 0 messages
+retry-queue.retry: 6 messages
+
+=== Monitoring at Sun Jul 27 23:40:31 +0330 2025 ===
+retry-queue: 0 messages
+retry-queue.failed: 0 messages
+retry-queue.retry: 6 messages
+
+=== Monitoring at Sun Jul 27 23:40:36 +0330 2025 ===
+retry-queue: 0 messages
+retry-queue.failed: 0 messages
+retry-queue.retry: 6 messages
+
+=== Monitoring at Sun Jul 27 23:40:41 +0330 2025 ===
+retry-queue: 0 messages
+retry-queue.failed: 0 messages
+retry-queue.retry: 6 messages
+
+=== Monitoring at Sun Jul 27 23:40:46 +0330 2025 ===
+retry-queue: 0 messages
+retry-queue.failed: 0 messages
+retry-queue.retry: 6 messages
+

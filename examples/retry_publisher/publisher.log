@@ -1,0 +1,61 @@
+{"level":"info","time":"2025-07-27T23:40:04+03:30","message":"Connecting to RabbitMQ"}
+{"level":"info","time":"2025-07-27T23:40:04+03:30","message":"Connected to RabbitMQ"}
+🚀 Starting Retry Publisher Example
+=====================================
+This publisher will send different types of messages to demonstrate:
+- Successful processing
+- Retry mechanism (nack → retry queue → main queue)
+- Final failure after max retries
+
+📨 Publishing 3 'success' messages (Should be processed successfully (acknowledged))...
+{"level":"debug","exchange":"retry-exchange","routing_key":"","message_id":"retry-test-1","confirmation":false,"time":"2025-07-27T23:40:04+03:30","message":"Message published successfully"}
+{"level":"info","message_id":"retry-test-1","message_type":"success","body":"success","time":"2025-07-27T23:40:04+03:30","message":"Message published successfully"}
+{"level":"debug","exchange":"retry-exchange","routing_key":"","message_id":"retry-test-2","confirmation":false,"time":"2025-07-27T23:40:05+03:30","message":"Message published successfully"}
+{"level":"info","message_id":"retry-test-2","message_type":"success","body":"success","time":"2025-07-27T23:40:05+03:30","message":"Message published successfully"}
+{"level":"debug","exchange":"retry-exchange","routing_key":"","message_id":"retry-test-3","confirmation":false,"time":"2025-07-27T23:40:05+03:30","message":"Message published successfully"}
+{"level":"info","message_id":"retry-test-3","message_type":"success","body":"success","time":"2025-07-27T23:40:05+03:30","message":"Message published successfully"}
+✅ Completed publishing success messages
+
+📨 Publishing 2 'retry' messages (Should fail first 2 times, succeed on 3rd attempt)...
+{"level":"debug","exchange":"retry-exchange","routing_key":"","message_id":"retry-test-4","confirmation":false,"time":"2025-07-27T23:40:07+03:30","message":"Message published successfully"}
+{"level":"info","message_id":"retry-test-4","message_type":"retry","body":"retry","time":"2025-07-27T23:40:07+03:30","message":"Message published successfully"}
+{"level":"debug","exchange":"retry-exchange","routing_key":"","message_id":"retry-test-5","confirmation":false,"time":"2025-07-27T23:40:07+03:30","message":"Message published successfully"}
+{"level":"info","message_id":"retry-test-5","message_type":"retry","body":"retry","time":"2025-07-27T23:40:07+03:30","message":"Message published successfully"}
+✅ Completed publishing retry messages
+
+📨 Publishing 2 'fail' messages (Should fail all retry attempts and go to final DLQ)...
+{"level":"debug","exchange":"retry-exchange","routing_key":"","message_id":"retry-test-6","confirmation":false,"time":"2025-07-27T23:40:09+03:30","message":"Message published successfully"}
+{"level":"info","message_id":"retry-test-6","message_type":"fail","body":"fail","time":"2025-07-27T23:40:09+03:30","message":"Message published successfully"}
+{"level":"debug","exchange":"retry-exchange","routing_key":"","message_id":"retry-test-7","confirmation":false,"time":"2025-07-27T23:40:09+03:30","message":"Message published successfully"}
+{"level":"info","message_id":"retry-test-7","message_type":"fail","body":"fail","time":"2025-07-27T23:40:09+03:30","message":"Message published successfully"}
+✅ Completed publishing fail messages
+
+📨 Publishing special test messages...
+{"level":"debug","exchange":"retry-exchange","routing_key":"","message_id":"special-retry-test-1","confirmation":false,"time":"2025-07-27T23:40:11+03:30","message":"Message published successfully"}
+{"level":"info","message_id":"special-retry-test-1","description":"Message with custom retry metadata","time":"2025-07-27T23:40:11+03:30","message":"Special test message published"}
+{"level":"debug","exchange":"retry-exchange","routing_key":"","message_id":"special-retry-test-2","confirmation":false,"time":"2025-07-27T23:40:11+03:30","message":"Message published successfully"}
+{"level":"info","message_id":"special-retry-test-2","description":"Message that should exhaust all retries","time":"2025-07-27T23:40:11+03:30","message":"Special test message published"}
+
+🎯 ALL MESSAGES PUBLISHED!
+=====================================
+Messages have been sent to the retry-exchange.
+Start the retry_consumer to see the retry mechanism in action:
+  cd examples/retry_consumer && ./retry_consumer
+
+Expected behavior:
+✅ 'success' messages: Immediate acknowledgment
+🔄 'retry' messages: Fail 2 times, succeed on 3rd (via retry queue)
+❌ 'fail' messages: Exhaust retries, go to final DLQ
+
+Monitor the queues:
+- retry-queue: Main processing queue
+- retry-queue.retry: Temporary retry queue (5s TTL)
+- retry-queue.failed: Final DLQ for permanently failed messages
+
+🔗 RabbitMQ Management UI: http://localhost:15672
+   Username: admin, Password: admin123
+{"level":"info","time":"2025-07-27T23:40:12+03:30","message":"Closing RabbitMQ client..."}
+{"level":"info","time":"2025-07-27T23:40:12+03:30","message":"Closing publisher"}
+{"level":"info","time":"2025-07-27T23:40:12+03:30","message":"closing consumer"}
+{"level":"info","time":"2025-07-27T23:40:12+03:30","message":"Closing RabbitMQ connection manager..."}
+{"level":"info","time":"2025-07-27T23:40:12+03:30","message":"RabbitMQ client closed successfully"}
