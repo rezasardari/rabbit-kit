@@ -43,6 +43,7 @@ func NewClient(config *Config, logger zerolog.Logger) (Client, error) {
 }
 
 func (c *client) Publisher() Publisher {
+
 	return c.publisher
 }
 
